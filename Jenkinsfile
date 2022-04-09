@@ -22,7 +22,7 @@ pipeline {
             sh 'terraform apply -var "name=hello" -var "group=web" -var "region=us-east-1" -var "profile=DevOpsUser" --auto-approve terraform/static-site'
           } 
           else {
-            sh 'terraform destroy -var "name=hello" -var "group=web" -var "region=us-east-1" -var "DevOpsUser" --auto-approve terraform/static-site'
+            sh 'terraform destroy -var "name=hello" -var "group=web" -var "region=us-east-1" -var "DevOpsUser" --auto-approve -chdir=terraform/static-site'
           }
         }
       }
@@ -33,7 +33,7 @@ pipeline {
         retry(count: 5) {
           sh 'ansible-playbook -i /etc/ansible/aws_ec2.yaml ansible/static-site/site.yaml'
         }
-      }
+      }cd 
     }
   }
 }
