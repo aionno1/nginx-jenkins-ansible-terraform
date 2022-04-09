@@ -19,7 +19,7 @@ pipeline {
         script {
           if (params.Action == "apply") {
             sh 'terraform -chdir=terraform/static-site init'
-            sh 'terraform apply -var "name=hello" -var "group=web" -var "region=us-east-1" -var "profile=DevOpsUser" --auto-approve terraform/static-site/main.tf'
+            sh 'terraform apply -var "name=hello" -var "group=web" -var "region=us-east-1" -var "profile=DevOpsUser" --auto-approve terraform/static-site'
           } 
           else {
             sh 'terraform destroy -var "name=hello" -var "group=web" -var "region=us-east-1" -var "profile=DevOpsUser" --auto-approve terraform/static-site'
