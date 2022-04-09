@@ -33,7 +33,7 @@ pipeline {
         retry(count: 5) {
           sh 'ansible-playbook -i /etc/ansible/aws_ec2.yaml ansible/static-site/site.yaml'
         }
-      }cd 
+      }
     }
   }
 }
