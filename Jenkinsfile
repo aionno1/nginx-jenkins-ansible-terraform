@@ -18,7 +18,7 @@ pipeline {
       steps {
         script {
           if (params.Action == "apply") {
-            sh 'terraform -chdir=terraform/static-site'
+            sh 'terraform -chdir=terraform/static-site init'
             sh 'terraform apply -var "name=hello" -var "group=web" -var "region=us-east-1" -var "profile=DevOpsUser" --auto-approve terraform/static-site'
           } 
           else {
