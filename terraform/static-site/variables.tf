@@ -1,9 +1,9 @@
-variable "profile" {
-    description = "The profile used to auth to AWS"
+variable "region" {
+    description = "default free tier region"
 }
 
-variable "region" {
-    description= "The region our instance will be in (i.e. us-east-1)"
+variable "profile" {
+    description= "default aws AMI profile cred"
 }
 
 variable "name" {
@@ -11,5 +11,5 @@ variable "name" {
 }
 
 variable "group" {
-    description= "the name of the group we will be using for Ansible purposes"
+    description= "name of the ansible dynamic inventory group"
 }
